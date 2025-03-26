@@ -1,0 +1,142 @@
+body {
+    background-color: #F3F3F3;;
+}
+
+@font-face {
+    font-family: DM_Sans;
+    src: url(fonts/DM_Sans/DMSans-VariableFont_opsz,wght.ttf);
+}
+a{
+    color: inherit;
+}
+
+curtains_group{
+    position: absolute;
+    width: clamp(400px, 90vw, 1500px);
+    height: 0px;
+    left: 30px;
+    /* left: max(5vw, 50vw - 750px, 22px); */
+    top: 30px;
+    /* top: clamp(0px, 0px + 50vw, 280px); */
+
+    font-family: DM_Sans;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    color: #000000;
+}
+francineAndZhikai{
+    position: absolute;
+    left: clamp(154px, 34.61vw, 577px);
+    top: 0px;
+}
+left_dragon{
+    position: absolute;
+    left: 0px;
+    top: clamp(-100px, -6vw, -27px);
+}
+right_dragon{
+    position: absolute;
+    left: clamp(249px, 56.09vw, 935px);
+    top: clamp(107px, 24.0vw, 400px);
+}
+dui_lian1{
+    position: absolute;
+    width: 2px;
+    height: 0px;
+    left: clamp(320px, 72.0vw, 1200px);
+    top: clamp(40px, 9.0vw, 150px);
+    font-family: DM_Sans;
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(13px, 3vw, 50px);
+    line-height: 110%;
+    align-items: center;
+    color: #8E2245;    
+}
+dui_lian2{
+    position: absolute;
+    width: 2px;
+    height: 0px;
+    left: clamp(79px, 18.0vw, 300px);
+    top: clamp(120px, 27.0vw, 450px);
+    font-family: DM_Sans;
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(13px, 3vw, 50px);
+    line-height: 110%;
+    align-items: center;
+    color: #8E2245;    
+}
+big_5{
+    position: absolute;
+    width: clamp(115px, 25.9vw, 432px);
+    height: 537px;
+    left: clamp(142px, 32.0vw, 534px);
+    top: clamp(51px, 11.4vw, 190px);
+    font-family: DM_Sans;
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(160px, 36.0vw, 600px);
+    line-height: 117%;
+    text-align: center;
+    letter-spacing: -0.03em;
+    color: #8E2245;
+}
+day{
+    position: absolute;
+    width: clamp(91.8px, 20.68vw, 344.8px);
+    height: clamp(19.4px, 4.36vw, 72.7px);
+    left: clamp(154px, 34.65vw, 577.6px);
+    top: clamp(240px, 54.0vw, 900px);
+    font-family: DM_Sans;
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(13.3px, 3.0vw, 50px);
+    line-height: 150%;
+    text-align: center;
+    color: #8E2245;
+    border: clamp(1.5px, 0.36vw, 6px) solid #8E2245;
+    border-radius: clamp(6px, 1.44vw, 24px);
+}
+wedding_address{
+    position: absolute;
+    width: 522.4px;
+    height: 192.79px;
+    left: calc(50% - 522.4px/2 + 0.2px);
+    top: clamp(280px, 63.0vw, 1050px);
+    font-family: DM_Sans;
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(8.5px, 1.92vw, 32px);
+    line-height: 117%;
+    text-align: center;
+    color: #8E2245;
+}
+rsvp_button{
+    box-sizing: border-box;
+    position: absolute;
+    width: clamp(91.8px, 20.68vw, 344.8px);
+    height: clamp(19.4px, 4.36vw, 72.7px);
+    left: 38.5%;
+    top: clamp(333px, 75vw, 1250px);
+    background: #F3F3F3;
+    border: 1px solid #E3E3E3;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: clamp(6px, 1.44vw, 24px);
+    font-family: DM_Sans;
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(13.3px, 3.0vw, 50px);
+    line-height: 150%;
+    align-items: center;
+    text-align: center;
+    color: #8E2245;
+}
+landing_tail{
+    position: absolute;
+    width: 100%;
+    left: 0%;
+    text-align: center;
+    top: clamp(367.6px, 82.8vw, 1380px);
+}

@@ -1,0 +1,10 @@
+#pragma once
+#include <string>
+
+inline std::string get_config_path(){
+    return "@CMAKE_CURRENT_SOURCE_DIR@/config.json";
+}
+
+inline std::string get_webpage_folder(){
+    return "@CMAKE_CURRENT_SOURCE_DIR@/SmartHome_Webpage/";
+}

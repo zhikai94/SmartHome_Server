@@ -1,0 +1,113 @@
+{
+    "curtains":{
+        "study_day":{
+            "ip" : "192.168.50.82",
+            "token" : "cacb555f28ff0a6dd18aae2d03584840"
+        },
+        "study":{
+            "ip" : "192.168.50.88",
+            "token" : "b87d282bf2d9e3c42659aa26e4ae3be0"
+        },
+        "balcony_day":{
+            "ip" : "192.168.50.185",
+            "token" : "23269f72e84d810a0cf3deeb3e176150"
+        },
+        "balcony":{
+            "ip" : "192.168.50.74",
+            "token" : "af6f8f42ef6d1f4316236d1ac8594ed6"
+        },
+        "master_day":{
+            "ip" : "192.168.50.206",
+            "token" : "b4b0d7b033c9b413ba21c2fe49da401f"
+        },
+        "master":{
+            "ip" : "192.168.50.144",
+            "token" : "6f384c7d6af596d31d5c50f30a0b965f"
+        },
+        "guest_day":{
+            "ip" : "192.168.50.69",
+            "token" : "4d36a186d058106d1687dbdc6dadd1b7"
+        },
+        "guest":{
+            "ip" : "192.168.50.86",
+            "token" : "0fbff2c74768f124477f867f008cc54f"
+        }
+    },
+
+    "lights":{
+        "hub":{
+            "ip": "192.168.50.127",
+            "token": "4f45314f30457569445736733253664e",
+            "hub_switches":{
+                "balcony_kitchen_side":{
+                    "id": "lumi.158d000a962cd2",
+                    "channel_0" : "Balcony Right"
+                },
+                "storeroom":{
+                    "id": "lumi.158d000a962e47",
+                    "channel_0" : "Storeroom"
+                },
+                "master_bedroom_toilet":{
+                    "id": "lumi.158d000a963ddf",
+                    "channel_0" : "Master Bedroom Toilet"
+                },
+                "balcony_living_side":{
+                    "id": "lumi.158d000a9715f5",
+                    "channel_0": "Balcony Left"
+                },
+                "wet_utility":{
+                    "id": "lumi.158d000a9713d8",
+                    "channel_0" : "Wet Utility"
+                },
+                "guest_toilet":{
+                    "id": "lumi.158d000a971b64",
+                    "channel_0" : "Guest Toilet"
+                },
+                "master_bedroom_balcony":{
+                    "id": "lumi.158d000a9729d9",
+                    "channel_0" : "Master Bedroom Balcony"
+                },
+                "drying_rack":{
+                    "id": "lumi.158d000a97d7a4",
+                    "channel_0" : "Drying Rack"
+                },
+                "guest_bedroom":{
+                    "id": "lumi.158d000a97d7f7",
+                    "channel_0" : "Guest Bedroom"
+                },
+                "entrance":{
+                    "id": "lumi.158d000ab5dae2",
+                    "channel_0" : "Shoe Cabinet",
+                    "channel_1" : "Entrance"
+                },
+                "display":{
+                    "id": "lumi.158d000aefe29f",
+                    "channel_0" : "Lazy Corner",
+                    "channel_1" : "Display Shelf"
+                },
+                "living_room":{
+                    "id": "lumi.158d000af1c663",
+                    "channel_0" : "Living Room",
+                    "channel_1" : "Study"
+                },
+                "kitchen":{
+                    "id": "lumi.158d000af22da1",
+                    "channel_0" : "Kitchen Pendant",
+                    "channel_1" : "Kitchen Spotlight"
+                },
+                "dining":{
+                    "id": "lumi.54ef441000a35f9f",
+                    "channel_0" : "Dining Spotlight",
+                    "channel_1" : "Dining Pendant",
+                    "channel_2" : "Corridor"
+                },
+                "master_bedroom":{
+                    "id": "lumi.54ef441000a377f3",
+                    "channel_0" : "Master Bedroom Spotlight",
+                    "channel_1" : "Master Bedroom Pendant",
+                    "channel_2" : "Master Bedroom Study"
+                }
+            }
+        }
+    }
+}
