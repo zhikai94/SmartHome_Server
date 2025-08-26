@@ -3,6 +3,7 @@ Smart Home Service used to control appliances in my house.
 Integrated Appliances:<br>
 Motorised Curtains<br>
 Light Switches (XiaoMi Hub)<br>
+Smart Plug Switches<br>
 
 Dependencies:<br>
 -python<br>
