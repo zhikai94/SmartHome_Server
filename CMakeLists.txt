@@ -10,6 +10,7 @@ add_subdirectory(../3rd_party/json nlohmann_json)
 
 # Own libraries using 3rd parties come next
 add_subdirectory(light_control)
+add_subdirectory(plug_control)
 
 add_executable(server
     main.cpp
@@ -22,6 +23,7 @@ target_link_libraries(server
     pybind11::headers
     nlohmann_json::nlohmann_json
     nicenice::light_control
+    nicenice::plug_control
 )
 
 # Make CMake generate a header to fill in the current source path, then let files include it

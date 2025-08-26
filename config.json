@@ -109,5 +109,28 @@
                 }
             }
         }
+    },
+
+    "plugs":{
+        "tv_lamp":{
+            "ip" : "192.168.50.106",
+            "token" : "cc619c3beb472c38e3aa840d02f7d6e2"
+        },
+        "study_lamp":{
+            "ip" : "192.168.50.196",
+            "token" : "a346f8255fa729047a1583daeea47158"
+        },
+        "display_lamp":{
+            "ip" : "192.168.50.52",
+            "token" : "5c9847ce98a0e6f155292ffd5acb9e92"
+        },
+        "reading_lamp":{
+            "ip" : "192.168.50.89",
+            "token" : "a8e92956a4252850161dccb1753aba73"
+        },
+        "bedroom_led":{
+            "ip" : "192.168.50.141",
+            "token" : "32134d5a72d48e832537ff96aa2d1c95"
+        }
     }
 }

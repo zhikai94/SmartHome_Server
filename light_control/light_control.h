@@ -40,7 +40,7 @@ private:
     nlohmann::json mConfig;
     std::string mHubIP;
     std::string mHubToken;
-    pybind11::scoped_interpreter mPythonInterpreter;
+    // pybind11::scoped_interpreter mPythonInterpreter;
     pybind11::dict mPythonVariables;
     std::unordered_map<std::string, std::string> mNameToSwitchIDMap;
     std::unordered_map<std::string, int> mNameToChannelMap;

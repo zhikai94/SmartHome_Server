@@ -6,6 +6,7 @@
 #include <nlohmann/json.hpp>
 #include "file_paths.h"
 #include "light_control.h"
+#include "plug_control.h"
 #include <chrono>
 
 int main(void){
@@ -17,11 +18,16 @@ int main(void){
         return 0;
     }
 
+    // Start and hold the pybind interpreter
+    pybind11::scoped_interpreter python_interpreter;
+
     // Spawn up Light Controller
     auto light_ptr = std::make_shared<NiceNice::LightControl>( config["lights"] );
     std::vector<std::string> all_lights = {"Balcony Right", "Storeroom", "Master Bedroom Toilet", "Wet Utility", "Balcony Left", "Guest Toilet", "Master Bedroom Balcony", "Guest Bedroom",
                                            "Shoe Cabinet", "Entrance", "Lazy Corner", "Display Shelf", "Living Room", "Study", "Kitchen Pendant", "Kitchen Spotlight", "Dining Spotlight", "Dining Pendant",
                                            "Corridor", "Master Bedroom Spotlight", "Master Bedroom Pendant", "Master Bedroom Study"};
+    std::vector<std::string> living_lights = {"Shoe Cabinet", "Entrance", "Lazy Corner", "Display Shelf", "Living Room", "Study", "Dining Spotlight", "Dining Pendant", "Corridor"};
+    std::vector<std::string> living_lamps = {"tv_lamp", "study_lamp", "display_lamp", "reading_lamp"};
 
     // light_ptr->OffLights({"Display Shelf", "Study"});
     // light_ptr->OnLights({"Study"});
@@ -32,6 +38,9 @@ int main(void){
     
     // std::cout << "Query took " << std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - start).count() << " ms" << std::endl;
     
+    // Start Plug Controller 
+    auto plug_ptr = std::make_shared<NiceNice::PlugControl>( config["plugs"] );
+
     // Rest Server
     std::ifstream ifs(get_webpage_folder() + "main.html");
     std::string sample_html( (std::istreambuf_iterator<char>(ifs) ), (std::istreambuf_iterator<char>() ) );
@@ -197,6 +206,20 @@ int main(void){
         }).get("/toggle_master_bedroom_spotlight", [sample_html, light_ptr](auto *res, auto *req) {
             std::cout << "Responding to a /toggle_master_bedroom_spotlight call over HTTPS." << std::endl;
             light_ptr->ToggleLights({"Master Bedroom Spotlight"});
+            res->end(sample_html);
+        }).get("/on_master_bedroom_led", [sample_html, plug_ptr](auto *res, auto *req) {
+            std::cout << "Responding to a /on_master_bedroom_led call over HTTPS." << std::endl;
+            plug_ptr->SetPlugs({"bedroom_led"}, true);
+            res->end(sample_html);
+        }).get("/off_master_bedroom_led", [sample_html, plug_ptr](auto *res, auto *req) {
+            std::cout << "Responding to a /off_master_bedroom_led call over HTTPS." << std::endl;
+            plug_ptr->SetPlugs({"bedroom_led"}, false);
+            res->end(sample_html);
+        }).get("/toggle_master_bedroom_led", [sample_html, plug_ptr](auto *res, auto *req) {
+            std::cout << "Responding to a /toggle_master_bedroom_led call over HTTPS." << std::endl;
+            plug_ptr->TogglePlugs({"bedroom_led"});
+            std::this_thread::sleep_for(std::chrono::milliseconds(300));
+            plug_ptr->TogglePlugs({"bedroom_led"});
             res->end(sample_html);
         }).get("/on_master_bedroom_pendant", [sample_html, light_ptr](auto *res, auto *req) {
             std::cout << "Responding to a /on_master_bedroom_pendant call over HTTPS." << std::endl;
@@ -381,6 +404,24 @@ int main(void){
         }).get("/off_all_lights", [sample_html, light_ptr, &all_lights](auto *res, auto *req) {
             std::cout << "Responding to a /off_all_lights call over HTTPS." << std::endl;
             light_ptr->OffLights(all_lights);
+            res->end(sample_html);
+        }).get("/vibe_living", [sample_html, plug_ptr, light_ptr, &living_lights, &living_lamps](auto *res, auto *req) {
+            std::cout << "Responding to a /vibe_living call over HTTPS." << std::endl;
+            plug_ptr->SetPlugs(living_lamps, true);
+            light_ptr->OffLights(living_lights);
+            res->end(sample_html);
+        }).get("/on_lamps", [sample_html, plug_ptr, &living_lamps](auto *res, auto *req) {
+            std::cout << "Responding to a /on_lamps call over HTTPS." << std::endl;
+            plug_ptr->SetPlugs(living_lamps, true);
+            res->end(sample_html);
+        }).get("/toggle_lamps", [sample_html, plug_ptr, &living_lamps](auto *res, auto *req) {
+            std::cout << "Responding to a /toggle_lamps call over HTTPS." << std::endl;
+            plug_ptr->TogglePlugs(living_lamps);
+            plug_ptr->TogglePlugs(living_lamps);
+            res->end(sample_html);
+        }).get("/off_lamps", [sample_html, plug_ptr, &living_lamps](auto *res, auto *req) {
+            std::cout << "Responding to a /off_lamps call over HTTPS." << std::endl;
+            plug_ptr->SetPlugs(living_lamps, false);
             res->end(sample_html);
         }).listen(port, [port](auto *token) {
             if (token) {
